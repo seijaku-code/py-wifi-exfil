@@ -53,7 +53,7 @@ pip install flask gunicorn cryptography requests
 
 On the Windows machine, run the Python script to extract and send Wi-Fi profiles to the webhook:
 ```bash
-python wifi_sender.py
+python exfil.py
 ```
 
 This will gather the Wi-Fi profiles, encrypt them, and send the encrypted data to the Flask webhook listener.
@@ -62,17 +62,17 @@ This will gather the Wi-Fi profiles, encrypt them, and send the encrypted data t
 
 1. To run the Flask app locally:
    ```bash
-   python webhook_listener.py
+   python listener.py
    ```
 
 2. For production, use Gunicorn:
    ```bash
-   gunicorn -w 4 -b 0.0.0.0:5000 webhook_listener:app
+   gunicorn -w 4 -b 0.0.0.0:5000 listener:app
    ```
 
 3. (Optional) Use Supervisor to manage the Gunicorn process in the background:
    ```bash
-   sudo supervisorctl start webhook_listener
+   sudo supervisorctl start listener
    ```
 
 ### Logs
